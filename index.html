@@ -3,11 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <title>Budget Tracker – Week 1 (Start)</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main>
     <h1>Budget Tracker</h1>
+
+    <div class="upload-balk">
+      <label>
+        📂 Excel importeren
+        <input type="file" id="excelUpload" accept=".xlsx,.xls,.csv">
+      </label>
+      <span class="upload-bestandsnaam" id="bestandsnaam">Geen bestand gekozen</span>
+    </div>
 
     <nav>
       <button data-tab="transactions">Transacties</button>
@@ -17,7 +25,6 @@
 
     <section id="transactions" class="tab">
       <h2>Transacties</h2>
-
       <form id="txForm">
         <input type="date" id="date">
         <input type="number" id="amount" placeholder="Bedrag">
@@ -28,7 +35,6 @@
         <input type="text" id="category" placeholder="Categorie">
         <button type="submit">Toevoegen</button>
       </form>
-
       <ul id="txList"></ul>
     </section>
 
@@ -42,6 +48,25 @@
       <p>Hier komt het overzicht van komende betalingen.</p>
     </section>
   </main>
+
+  <div class="modal-overlay" id="bewerkModal">
+    <div class="modal">
+      <h3>Transactie bewerken</h3>
+      <form id="bewerkForm">
+        <input type="date" id="bewerkDatum">
+        <input type="number" id="bewerkBedrag" placeholder="Bedrag">
+        <select id="bewerkType">
+          <option value="expense">Uitgave</option>
+          <option value="income">Inkomst</option>
+        </select>
+        <input type="text" id="bewerkCategorie" placeholder="Categorie">
+        <div class="modal-knoppen">
+          <button type="button" class="btn-annuleren" id="annuleerBewerk">Annuleren</button>
+          <button type="submit" class="btn-opslaan">Opslaan</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
