@@ -1,0 +1,240 @@
+
+    /* ===========================
+       Reset & basis
+    =========================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===========================
+       CSS Variabelen (kleuren)
+    =========================== */
+    :root {
+      --kleur-achtergrond: #f0f4f8;
+      --kleur-wit: #ffffff;
+      --kleur-primair: #2563eb;
+      --kleur-primair-donker: #1d4ed8;
+      --kleur-tekst: #1e293b;
+      --kleur-subtekst: #64748b;
+      --kleur-rand: #e2e8f0;
+      --kleur-uitgave: #ef4444;
+      --kleur-inkomst: #22c55e;
+      --schaduw: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --radius: 10px;
+    }
+
+    /* ===========================
+       Basis lay-out
+    =========================== */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--kleur-achtergrond);
+      color: var(--kleur-tekst);
+      min-height: 100vh;
+      padding: 30px 16px;
+    }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ===========================
+       Paginatitel
+    =========================== */
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--kleur-primair);
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--kleur-tekst);
+    }
+
+    /* ===========================
+       Navigatie tabs
+    =========================== */
+    nav {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      background-color: var(--kleur-wit);
+      padding: 6px;
+      border-radius: var(--radius);
+      box-shadow: var(--schaduw);
+    }
+
+    nav button {
+      flex: 1;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      background-color: transparent;
+      color: var(--kleur-subtekst);
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    nav button:hover {
+      background-color: var(--kleur-achtergrond);
+      color: var(--kleur-tekst);
+    }
+
+    nav button.actief {
+      background-color: var(--kleur-primair);
+      color: white;
+    }
+
+    /* ===========================
+       Tabbladen (secties)
+    =========================== */
+    .tab {
+      background-color: var(--kleur-wit);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--schaduw);
+    }
+
+    /* ===========================
+       Formulier
+    =========================== */
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    form input,
+    form select {
+      padding: 10px 12px;
+      border: 1px solid var(--kleur-rand);
+      border-radius: 7px;
+      font-size: 0.9rem;
+      color: var(--kleur-tekst);
+      background-color: #fafafa;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+
+    form input:focus,
+    form select:focus {
+      outline: none;
+      border-color: var(--kleur-primair);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      background-color: var(--kleur-wit);
+    }
+
+    /* Categorie-veld en knop naast elkaar in het grid */
+    form input[type="text"] {
+      grid-column: 1;
+    }
+
+    form button[type="submit"] {
+      grid-column: 2;
+      padding: 10px 20px;
+      background-color: var(--kleur-primair);
+      color: white;
+      border: none;
+      border-radius: 7px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    form button[type="submit"]:hover {
+      background-color: var(--kleur-primair-donker);
+    }
+
+    form button[type="submit"]:active {
+      transform: scale(0.98);
+    }
+
+    /* ===========================
+       Transactielijst
+    =========================== */
+    #txList {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #txList li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border: 1px solid var(--kleur-rand);
+      border-radius: 8px;
+      background-color: #fafafa;
+      font-size: 0.9rem;
+    }
+
+    #txList li .tx-bedrag {
+      font-weight: 700;
+    }
+
+    #txList li.uitgave .tx-bedrag {
+      color: var(--kleur-uitgave);
+    }
+
+    #txList li.inkomst .tx-bedrag {
+      color: var(--kleur-inkomst);
+    }
+
+    /* ===========================
+       Plaatshouder-tekst
+    =========================== */
+    p {
+      color: var(--kleur-subtekst);
+      font-size: 0.95rem;
+    }
+
+    /* ===========================
+       Responsive (kleine schermen)
+    =========================== */
+    @media (max-width: 520px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      form button[type="submit"] {
+        grid-column: 1;
+      }
+
+      form input[type="text"] {
+        grid-column: 1;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+    }
+    
+    #txList li button {
+  background-color: transparent;
+  border: 1px solid var(--kleur-uitgave);
+  color: var(--kleur-uitgave);
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#txList li button:hover {
+  background-color: var(--kleur-uitgave);
+  color: white;
+}

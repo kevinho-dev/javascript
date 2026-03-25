@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <title>Budget Tracker – Week 1 (Start)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Budget Tracker</h1>
+
+    <nav>
+      <button data-tab="transactions">Transacties</button>
+      <button data-tab="subscriptions">Abonnementen</button>
+      <button data-tab="upcoming">Komende betalingen</button>
+    </nav>
+
+    <section id="transactions" class="tab">
+      <h2>Transacties</h2>
+
+      <form id="txForm">
+        <input type="date" id="date">
+        <input type="number" id="amount" placeholder="Bedrag">
+        <select id="type">
+          <option value="expense">Uitgave</option>
+          <option value="income">Inkomst</option>
+        </select>
+        <input type="text" id="category" placeholder="Categorie">
+        <button type="submit">Toevoegen</button>
+      </form>
+
+      <ul id="txList"></ul>
+    </section>
+
+    <section id="subscriptions" class="tab" hidden>
+      <h2>Abonnementen</h2>
+      <p>Hier komen de abonnementen.</p>
+    </section>
+
+    <section id="upcoming" class="tab" hidden>
+      <h2>Komende betalingen</h2>
+      <p>Hier komt het overzicht van komende betalingen.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
